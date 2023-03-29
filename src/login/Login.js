@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import './App.css'; // Import the CSS file
-import logo from '../images/logo.png';
+import LoginForm from './LoginForm';
+import { useNavigate } from 'react-router-dom';
 
-const LoginForm = () => {
-    // const [htmlContent, setHtmlContent] = useState('');
+
+const Login = () => {
+    const history = useNavigate(); // Add this line to use the useHistory hook
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    handleSubmit(event);
+
+    // If login is successful, redirect to the inventory page
+    // You may want to check the login status before redirecting
+    history.push('/inventory');
+  };
   const [message, setMessage] = useState('');
   const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
   const [credentials, setCredentials] = useState({ username: '', password: '' });
@@ -16,7 +26,7 @@ const LoginForm = () => {
           client_id: GOOGLE_CLIENT_ID, // Use the GOOGLE_CLIENT_ID constant here
         });
       });
-    };  
+    };
     initGoogleClient();
   }, []);
 
@@ -36,15 +46,6 @@ const LoginForm = () => {
       setMessage('Error: Google login failed');
     }
   };
-
-  // useEffect(() => {
-  //   const loadLoginForm = async () => {
-  //     const response = await fetch('/static/LoginForm.html');
-  //     const html = await response.text();
-  //     setHtmlContent(html);
-  //   };
-  //   loadLoginForm();
-  // }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -71,41 +72,17 @@ const LoginForm = () => {
   };
 
 
-    return (
-        <div className="App">
-        <img src={logo} alt="Logo" /> {/* Add the logo image */}
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              onChange={handleChange}
-            />
-            <br />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={handleChange}
-            />
-            <br />
-            <button type="submit">Login</button>
-          </form>
-          <div className="social-login-container">
-            <div id="google-signin-button" onClick={handleGoogleLogin}></div>
-          </div>
-          <p>{message}</p>
-        </div>
-      );
-    };
-
-  // useEffect(() => {
-  //   const form = document.querySelector('form');
-  //   if (form) {
-  //     form.addEventListener('submit', handleSubmit);
-  //     return () => {
-  //       form.removeEventListener('submit', handleSubmit);
-  //     };
-  //   }
-  // }, [htmlContent]);
-  export default LoginForm;
+  return (<div className="body-background">
+    <form onSubmit={onFormSubmit}>
+  <LoginForm
+      handleSubmit={handleSubmit}
+      handleChange={handleChange}
+      handleGoogleLogin={handleGoogleLogin}
+      message={message}
+    />
+    </form>
+</div>
+    
+  );
+}
+  export default Login;

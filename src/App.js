@@ -1,13 +1,18 @@
 import React from 'react';
 import './App.css';
-import LoginForm from './login/Login';
+import Login from './login/Login';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Inventory from './inventory/Inventory'; // Import your Inventory component
 
 function App() {
-  return (
-    <div className="body-background">
-      <LoginForm />
-    </div>
-  );
-}
 
+return (
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/inventory" element={<Inventory />} />
+    </Routes>
+  </BrowserRouter>
+);
+}
 export default App;
