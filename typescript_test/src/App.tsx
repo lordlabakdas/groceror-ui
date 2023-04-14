@@ -7,21 +7,13 @@ function App() {
 
   return (
     <>
-
-      <div>
-
         {/* Shows form depending on count */}
-        {count === 0 && 
-          <RegisterForm setCount={setCount}/>
-
+        {count === 0 &&       
+          <RegisterForm setCount={setCount} />
         }
-
-        {count === 1 && 
-          <LoginForm setCount={setCount}/>
+        {count === 1 &&
+          <LoginForm setCount={setCount} />
         }
-
-      </div>
-
     </>
 
   )
