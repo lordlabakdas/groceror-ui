@@ -35,7 +35,7 @@ function RegisterForm({setCount}) {
                     <p className=' text-gray-400 py-2'>Already registered?</p>
                     <p className=' text-gray-400 py-2 underline'>
                         <button className="underline"
-                        onClick={() => setCount(1)}>
+                        onClick={() => setCount(1)} type ="button">
                             Sign In
                         </button>
                     </p>
