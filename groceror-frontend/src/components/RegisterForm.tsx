@@ -22,7 +22,6 @@ function RegisterForm({ setCount }: { setCount: any }) {
         setUser({ ...user, [event.id]: event.value })
     }
 
-
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
         e.preventDefault();

@@ -17,6 +17,8 @@ function LoginForm({ setCount }: { setCount: any }) {
     const [username, setUserName] = useState<string>(initialState.Username)
     const [password, setPassword] = useState<string>(initialState.Password)
     const [user, setUser] = useState<User>(initialState)
+    const [validUser, SetUserValidity] = useState<Boolean>(true)
+
 
     const handleInput = (event: HTMLInputElement) => {
         setUser({ ...user, [event.id]: event.value })
@@ -25,6 +27,12 @@ function LoginForm({ setCount }: { setCount: any }) {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
         e.preventDefault();
+        if (user.Username == "" || user.Password == "") {
+            SetUserValidity(false);
+            return;
+        }
+
+        SetUserValidity(true);
         console.log(user)
         axios.post('https://jsonplaceholder.typicode.com/posts', { user })
             .then(response => console.log(response.data))
@@ -51,6 +59,11 @@ function LoginForm({ setCount }: { setCount: any }) {
                     id="Password"
                     onChange={(e) => handleInput(e.target)} />
             </div>
+            {!validUser &&
+                <p className=" text-red-600 py-2">
+                    Invalid username or password!
+                </p>
+            }
             <br></br>
             <button className='w-full py-2 bg-teal-500 hover:bg-teal-700 \
              border-teal-500 hover:border-teal-700 text-sm border-4 \
