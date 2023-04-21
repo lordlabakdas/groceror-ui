@@ -1,5 +1,11 @@
 # grocerer - A platform for any shop owner
 
+## Intent
+
+This app is aimed at helping the Grocer community by providing an open source app that can be used to manage their store.
+
+## What is groceror
+
 - An interface between the local grocery store owner and the consumer
 
 - Primarily a store owner driven platform as opposed to ind. decider
@@ -10,10 +16,9 @@
 - Social good
   - building micro-communities
 
-
-This app is aimed at helping the Grocer community by providing an open source app that can be used to manage their store.
-
 ## Installation
+
+Assuming you have nodejs and npm installed on your system, please install app dependencies as below in root folder of project.
 
 ```bash
 $ npm install
@@ -21,7 +26,7 @@ $ npm install
 
 # Run app 
 
-Runs the app in the development mode.
+Runs the app in the development mode. Excute the below in the root folder of the project.
 
 ```bash
 $ npm run dev
