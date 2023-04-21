@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 
 
 function RegisterForm({ setCount }: { setCount: any }) {
@@ -8,7 +8,7 @@ function RegisterForm({ setCount }: { setCount: any }) {
         name: string
         email: string
         address: string
-        entity_type: string
+        account_type: string
         username: string
         password: string
     }
@@ -17,7 +17,7 @@ function RegisterForm({ setCount }: { setCount: any }) {
         name: "",
         email: "",
         address: "",
-        entity_type: "",
+        account_type: "",
         username: "",
         password: ""
     }
@@ -25,7 +25,7 @@ function RegisterForm({ setCount }: { setCount: any }) {
     const [name, setName] = useState<string>(initialState.name)
     const [email, setEmail] = useState<string>(initialState.email)
     const [address, setAddress] = useState<string>(initialState.address)
-    const [entity_type, setEntity_Type] = useState<string>(initialState.entity_type)
+    const [Account, setAccount_type] = useState("")
     const [username, setUserName] = useState<string>(initialState.username)
     const [password, setPassword] = useState<string>(initialState.password)
     const [user, setUser] = useState<User>(initialState)
@@ -33,6 +33,14 @@ function RegisterForm({ setCount }: { setCount: any }) {
     const handleInput = (event: HTMLInputElement) => {
         setUser({ ...user, [event.id]: event.value })
     }
+
+    const account_types = ["customer", "store owner"];
+
+    const handleOptionChange = (event: { target: { value: SetStateAction<string>; }; }) => {
+        setAccount_type(event.target.value);
+      };
+      
+
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
@@ -72,12 +80,15 @@ function RegisterForm({ setCount }: { setCount: any }) {
                     onChange={(e) => handleInput(e.target)} />
             </div>
             <div className='flex flex-col text-gray-400 py-2'>
-                <label>Entity_Type:</label>
-                <input className='rounded-lg bg-gray-700 mt-2 p-2 \
-              focus:order-blue focus:bg-gray-800 focus:outline-none'
-                    type="text"
-                    id="entity_type"
-                    onChange={(e) => handleInput(e.target)} />
+            <label>Account type:</label>
+                <select value={Account} onChange={handleOptionChange}>
+                {account_types.map((option) => (
+                <option key={option} value={option}>
+                {option}
+            </option>
+            ))}
+            </select>
+
             </div>
             <div className='flex flex-col text-gray-400 py-2'>
                 <label>Username:</label>
