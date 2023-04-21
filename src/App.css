@@ -1,116 +1,13 @@
-/* @import url('./grocery_login.jpg'); */
-
-.social-login-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
 .body-background {
-  background-image: url('./grocery_login.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  min-width: 100vw;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-#google-signin-button {
-  display: inline-block;
-  background: rgb(255, 255, 255);
-  color: #444;
-  width: 100%;
-  max-width: 100%;
-  border-radius: 5px;
-  border: thin solid #888;
-  box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.2);
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-#google-signin-button:hover {
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
-}
-
-#google-signin-button:before {
-  content: url('https://developers.google.com/identity/images/btn_google_signin_light_normal_web.png');
-  width: 191px;
-  height: 46px;
-  display: inline-block;
-  vertical-align: middle;
-  background-size: 191px 46px;
-  background-repeat: no-repeat;
-}
-
-#google-signin-button:hover:before {
-  content: url('https://developers.google.com/identity/images/btn_google_signin_light_focus_web.png');
-}
-
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #fff0f5; /* Pinkish-white background color */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-.App img {
-  width: 200px; /* Maintain the aspect ratio */
-  height: 200px; /* Set the desired height */
-  margin-bottom: 1rem;
-}
-
-.App {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Add any other required styles */
-
-
-h1 {
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  margin-bottom: 10px;
-}
-
-input {
-  margin-top: 5px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-button {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #15ff00;
-  color: #ffffff;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
+    background-image: url('./assets/grocery_login.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
