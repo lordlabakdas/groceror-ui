@@ -8,10 +8,10 @@ function Background({ count, setCount }: { count: number, setCount: any }) {
         <div className="body-background">
 
             {/* Shows form depending on count */}
-            {count === 0 &&
+            {count === 1 &&
                 <RegisterForm setCount={setCount} />
             }
-            {count === 1 &&
+            {count === 0 &&
                 <LoginForm setCount={setCount} />
             }
 
